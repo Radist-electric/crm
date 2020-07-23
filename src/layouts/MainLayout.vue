@@ -1,19 +1,4 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link rel="stylesheet" href="index.css">
-  <title>Document</title>
-</head>
-
-
-<body>
+<template>
   <div>
     <div class="app-main-layout">
       <nav class="navbar orange lighten-1">
@@ -32,7 +17,7 @@
                 <i class="material-icons right">arrow_drop_down</i>
               </a>
 
-              <ul id='dropdown' class='dropdown-content'>
+              <ul id="dropdown" class="dropdown-content">
                 <li>
                   <a href="#" class="black-text">
                     <i class="material-icons">account_circle</i>Профиль
@@ -70,49 +55,7 @@
 
       <main class="app-content">
         <div class="app-page">
-
-          <div>
-            <div class="page-title">
-              <h3>История записей</h3>
-            </div>
-
-            <div class="history-chart">
-              <canvas></canvas>
-            </div>
-
-            <section>
-              <table>
-                <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>Сумма</th>
-                    <th>Дата</th>
-                    <th>Категория</th>
-                    <th>Тип</th>
-                    <th>Открыть</th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>1212</td>
-                    <td>12.12.32</td>
-                    <td>name</td>
-                    <td>
-                      <span class="white-text badge red">Расход</span>
-                    </td>
-                    <td>
-                      <button class="btn-small btn">
-                        <i class="material-icons">open_in_new</i>
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </section>
-          </div>
-
+          <router-view />
         </div>
       </main>
 
@@ -123,8 +66,4 @@
       </div>
     </div>
   </div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-</body>
-
-</html>
+</template>
