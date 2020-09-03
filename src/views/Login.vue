@@ -8,7 +8,7 @@
           type="text"
           v-model.trim="email"
           :class="{invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email)}"
-        >
+        />
         <label for="email">Email</label>
         <small
           class="helper-text invalid"
@@ -25,7 +25,7 @@
           type="password"
           v-model.trim="password"
           :class="{invalid: ($v.password.$dirty && !$v.password.required) || ($v.password.$dirty && !$v.password.minLength)}"
-        >
+        />
         <label for="password">Пароль</label>
         <small
           class="helper-text invalid"
@@ -54,36 +54,41 @@
 </template>
 
 <script>
-import {email, required, minLength} from 'vuelidate/lib/validators';
-import messages from '@/utils/messages';
+import { email, required, minLength } from "vuelidate/lib/validators";
+import messages from "@/utils/messages";
 export default {
-  name: 'login',
+  name: "login",
   data: () => ({
-    email: '',
-    password: ''
+    email: "",
+    password: ""
   }),
   validations: {
-    email: {email, required},
-    password: {required, minLength: minLength(8)}
+    email: { email, required },
+    password: { required, minLength: minLength(8) }
   },
   mounted() {
     if (messages[this.$route.query.message]) {
-      this.$message(messages[this.$route.query.message])
+      this.$message(messages[this.$route.query.message]);
     }
   },
   methods: {
-    submitHandler() {
+    async submitHandler() {
       if (this.$v.$invalid) {
-        this.$v.$touch()
-        return
+        this.$v.$touch();
+        return;
       }
       const formData = {
         email: this.email,
         password: this.password
+      };
+      try {
+        await this.$store.dispatch('login', formData);
+        this.$router.push("/");
+      } catch (e) {
+        // throw e;
+        console.error(e);
       }
-      console.log(formData)
-      this.$router.push('/')
     }
   }
-}
+};
 </script>

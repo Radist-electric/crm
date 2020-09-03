@@ -1,11 +1,12 @@
+/*eslint no-unused-vars: 1*/
 import M from "materialize-css";
 export default {
-  install(Vue) {
-    Vue.prototype.$message = function(html) {
-      M.toast({html})
+  install(Vue, options) {
+    Vue.prototype.$message = function (html) {
+      M.toast({ html })
     }
-    Vue.prototype.$error = function(html) {
-      M.toast({html: `[Ошибка]: ${html}`})
+    Vue.prototype.$error = function (html) {
+      M.toast({ html: `[Ошибка]: ${html}` })
     }
   }
 }
