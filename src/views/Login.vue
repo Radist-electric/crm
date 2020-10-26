@@ -86,7 +86,7 @@ export default {
         this.$router.push("/");
       } catch (e) {
         // throw e;
-        console.error(e);
+        console.error(e)
       }
     }
   }
