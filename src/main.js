@@ -2,20 +2,22 @@
 import Vue from "vue";
 import Vuelidate from 'vuelidate';
 import App from "./App.vue";
-import "./registerServiceWorker";
 import router from "./router";
 import store from "./store";
 import dateFilter from "@/filters/date.filter";
-import 'materialize-css/dist/js/materialize.min';
 import messageplugin from '@/utils/message.plugin';
+import Loader from '@/components/app/Loader'
 import firebase from 'firebase/app';
+import "./registerServiceWorker";
+import 'materialize-css/dist/js/materialize.min';
 import 'firebase/auth';
 import 'firebase/database';
 
-Vue.use(messageplugin);
-Vue.config.productionTip = false;
-Vue.use(Vuelidate);
-Vue.filter('date', dateFilter);
+Vue.use(messageplugin)
+Vue.config.productionTip = false
+Vue.use(Vuelidate)
+Vue.filter('date', dateFilter)
+Vue.component('Loader', Loader)
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
